@@ -17,6 +17,7 @@ class GovernmentManager {
             GovernmentActionEnum.SHOW_PENSIONERS -> TODO()
             GovernmentActionEnum.CHANGE_PENSION_AGE -> TODO()
         }
+        start()
     }
 
     private fun createGovernment() {
