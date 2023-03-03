@@ -1,18 +1,25 @@
 package com.example.codeschoolhomework.homework2
 
 object LocalesDataController {
-    private val locales = mutableMapOf<String, String>()
+    private val _locales = mutableMapOf<String, MutableMap<String, String>>()
+    val locales: Map<String, Map<String, String>>
+        get() = _locales
     private val translator = Translator()
 
-    fun get(key: String): String {
-        if (!locales.containsKey(key)) locales[key] = translator.translate(key)
-        return locales[key] ?: throw java.lang.RuntimeException("Please, make sure that your translator class translate fun() works correctly")
-//        return locales[key]!!
+
+    fun get(languageKey: String, textKey: String): String? {
+        return _locales[languageKey]?.get(textKey) ?: add(languageKey, textKey)
+    }
+
+    fun add(languageKey: String, textKey: String): String? {
+        if (_locales[languageKey] != null)
+            _locales[languageKey]?.put(textKey, translator.translate(languageKey, textKey))
+        else {
+            _locales[languageKey] = mutableMapOf(textKey to translator.translate(languageKey, textKey))
+        }
+        return _locales[languageKey]?.get(textKey)
     }
 }
-
-
-
 
 //hello : Hello map.get(key)
 //goodbye : -> translating goodbye, putting to map, map.get(key)
