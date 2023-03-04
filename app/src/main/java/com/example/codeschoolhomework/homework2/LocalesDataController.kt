@@ -1,23 +1,39 @@
 package com.example.codeschoolhomework.homework2
 
 object LocalesDataController {
-    private val _locales = mutableMapOf<String, MutableMap<String, String>>()
-    val locales: Map<String, Map<String, String>>
-        get() = _locales
+     val locales = mutableMapOf<String, MutableMap<String, String>>()
     private val translator = Translator()
 
 
     fun get(languageKey: String, textKey: String): String? {
-        return _locales[languageKey]?.get(textKey) ?: add(languageKey, textKey)
+        return locales[languageKey]?.get(textKey) ?: add(languageKey, textKey)
     }
 
     fun add(languageKey: String, textKey: String): String? {
-        if (_locales[languageKey] != null)
-            _locales[languageKey]?.put(textKey, translator.translate(languageKey, textKey))
+        if (locales[languageKey] != null)
+            locales[languageKey]?.put(textKey, translator.translate(languageKey, textKey))
         else {
-            _locales[languageKey] = mutableMapOf(textKey to translator.translate(languageKey, textKey))
+            locales[languageKey] = mutableMapOf(textKey to translator.translate(languageKey, textKey))
         }
-        return _locales[languageKey]?.get(textKey)
+        return locales[languageKey]?.get(textKey)
+    }
+
+    fun remove(languageKey: String, textKey: String){
+        if (locales[languageKey]?.get(textKey) != null) {
+            locales[languageKey]?.remove(textKey)
+            println("text $textKey is removed")
+        } else {
+            println("$textKey is not exist")
+        }
+    }
+
+    fun edit(languageKey: String, textKey: String, newText: String) {
+        if (locales[languageKey]?.get(textKey) != null) {
+            locales[languageKey]?.put(textKey, newText)
+            println("text $textKey is replaced to $newText")
+        } else {
+            println("$textKey is not exist")
+        }
     }
 }
 
