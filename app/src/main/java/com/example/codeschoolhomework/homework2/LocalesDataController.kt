@@ -1,13 +1,39 @@
 package com.example.codeschoolhomework.homework2
 
 object LocalesDataController {
-    private val locales = mutableMapOf<String, String>()
+     val locales = mutableMapOf<String, MutableMap<String, String>>()
     private val translator = Translator()
 
-    fun get(key: String): String {
-        if (!locales.containsKey(key)) locales[key] = translator.translate(key)
-        return locales[key] ?: throw java.lang.RuntimeException("Please, make sure that your translator class translate fun() works correctly")
-//        return locales[key]!!
+
+    fun get(languageKey: String, textKey: String): String? {
+        return locales[languageKey]?.get(textKey) ?: add(languageKey, textKey)
+    }
+
+    fun add(languageKey: String, textKey: String): String? {
+        if (locales[languageKey] != null)
+            locales[languageKey]?.put(textKey, translator.translate(languageKey, textKey))
+        else {
+            locales[languageKey] = mutableMapOf(textKey to translator.translate(languageKey, textKey))
+        }
+        return locales[languageKey]?.get(textKey)
+    }
+
+    fun remove(languageKey: String, textKey: String){
+        if (locales[languageKey]?.get(textKey) != null) {
+            locales[languageKey]?.remove(textKey)
+            println("text $textKey is removed")
+        } else {
+            println("$textKey is not exist")
+        }
+    }
+
+    fun edit(languageKey: String, textKey: String, newText: String) {
+        if (locales[languageKey]?.get(textKey) != null) {
+            locales[languageKey]?.put(textKey, newText)
+            println("text $textKey is replaced to $newText")
+        } else {
+            println("$textKey is not exist")
+        }
     }
 }
 

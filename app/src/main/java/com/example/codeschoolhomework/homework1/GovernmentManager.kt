@@ -9,7 +9,9 @@ class GovernmentManager {
     fun start() {
         "GovernmentManager is starting...".log()
 
-        when (GovernmentActionEnum.valueOf(scanner.nextLine().uppercase())) {
+        var input = scanner.nextLine().uppercase()
+
+        when (GovernmentActionEnum.valueOf(input)) {
             GovernmentActionEnum.CREATE_GOVERNMENT -> createGovernment()
             GovernmentActionEnum.ADD_HUMAN -> addHuman()
             GovernmentActionEnum.REMOVE_HUMAN -> TODO()
@@ -33,6 +35,8 @@ class GovernmentManager {
         governments.add(government)
 
         "Government $government successfully created".log()
+
+        start()
     }
 
     private fun addHuman() {
