@@ -11,9 +11,6 @@ object LocalesDataController {
     }
 }
 
-
-
-
 //hello : Hello map.get(key)
 //goodbye : -> translating goodbye, putting to map, map.get(key)
 
