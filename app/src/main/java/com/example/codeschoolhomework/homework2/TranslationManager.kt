@@ -1,89 +1,92 @@
 package com.example.codeschoolhomework.homework2
 
-import android.os.CountDownTimer
-import android.os.Handler
-import android.os.Looper
-import java.sql.Time
 import java.util.*
-import java.util.concurrent.TimeUnit
-import kotlin.concurrent.schedule
 
 class TranslationManager {
     private val scanner = Scanner(System.`in`)
+    private var locale: LocalesEnum? = null
 
     fun start() {
-        "Please, input action".log()
+        if (locale == null) {
+            "We have \n${LocalesEnum.values()}\navailable languages".log()
+            "Please insert language key(alpha2)".log()
+            locale = LocalesEnum.from(scanner.nextLine())
+        }
 
-        when (TranslationActionEnum.valueOf(scanner.next().uppercase())) {
+        "Please, input action".log()
+        when (TranslationActionEnum.from(scanner.next())) {
             TranslationActionEnum.ADD -> addTranslation()
             TranslationActionEnum.GET -> getTranslation()
             TranslationActionEnum.REMOVE -> remove()
             TranslationActionEnum.EDIT -> edit()
-            else -> println("try again")
-        }
-
-        if (LocalesDataController.locales.values.toMutableList().map {
-                it.values.toMutableList()
-            }.flatten().size > 1) {
-
-
-
-            "i am going to rest".log()
-            Timer().schedule(5000) {
-                "i am coming back".log()
+            TranslationActionEnum.CHANGE_LOCALE -> changeLocale()
+            TranslationActionEnum.UNDEFINED -> {
+                "Wrong action".log()
+                start()
             }
         }
+
+//        val a = LocalesDataController.locales.values
+//        a.size
+//
+//        if (LocalesDataController.locales.values.toMutableList().map {
+//                it.values.toMutableList()
+//            }.flatten().size > 1) {
+//
+//            "i am going to rest".log()
+//            Timer().schedule(5000) {
+//                "i am coming back".log()
+//            }
+//        }
         start()
     }
 
-    fun addTranslation() {
-        val language = chooseLanguage()
+    private fun changeLocale() {
+        "We have \n${LocalesEnum.values()}\navailable languages".log()
+        "Please insert language key(alpha2)".log()
+        locale = LocalesEnum.from(scanner.nextLine())
+    }
+
+    private fun addTranslation() {
         "Please insert text".log()
         val text = scanner.next()
 
-        val translatedText = LocalesDataController.add(language.key, text)
-        "text: $text , translate: $translatedText".log()
-
+        locale?.alpha2?.let {
+            val translatedText = LocalesDataController.add(it, text)
+            "text: $text , translate: $translatedText".log()
+        }
     }
 
-    fun getTranslation() {
-        val language = chooseLanguage()
+    private fun getTranslation() {
         "Please insert text".log()
         val text = scanner.next()
 
-        val translatedText = LocalesDataController.get(language.key, text)
-        "text: $text , translate: $translatedText".log()
+        locale?.alpha2?.let {
+            val translatedText = LocalesDataController.get(it, text)
+            "text: $text , translate: $translatedText".log()
+        }
     }
 
-    fun remove() {
-        val language = chooseLanguage()
+    private fun remove() {
         "Please insert text".log()
         val text = scanner.next()
 
-        LocalesDataController.remove(language.key, text)
+        locale?.alpha2?.let {
+            LocalesDataController.remove(it, text)
+        }
     }
 
-
-    fun chooseLanguage(): LocalesEnum {
-        "Please insert language".log()
-        val languageIndex = scanner.nextInt()
-        return if (languageIndex >= LocalesEnum.values().size) LocalesEnum.ENGLISH
-        else LocalesEnum.values()[languageIndex]
-    }
-
-    fun edit() {
-        val language = chooseLanguage()
+    private fun edit() {
         "Please insert text".log()
         val text = scanner.next()
         "Please insert new word to edit".log()
         val newText = scanner.next()
-        LocalesDataController.edit(language.key, text, newText)
+        locale?.alpha2?.let {
+            LocalesDataController.edit(it, text, newText)
+        }
     }
 
-
-    private
-
-    fun String.log() {
+    private fun String.log() {
         println(this)
     }
 }
