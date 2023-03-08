@@ -1,24 +1,34 @@
 package com.example.codeschoolhomework.homework2
 
-object LocalesDataController {
-     val locales = mutableMapOf<String, MutableMap<String, String>>()
+import java.util.*
+import kotlin.concurrent.schedule
+
+
+object LocalesDataController : Translator.OnRestListener {
+    private val locales = mutableMapOf<String, MutableMap<String, String>>()
+    val translateLater = mutableMapOf<String, MutableMap<String, String>>()
     private val translator = Translator()
-    translator.setOnRestListener(...)
+    var onRestEndListener: OnRestEndListener? = null
+
 
     fun get(languageKey: String, textKey: String): String? {
+
         return locales[languageKey]?.get(textKey) ?: add(languageKey, textKey)
+
     }
 
-//    fun add(languageKey: String, textKey: String): String? {
-//        if (locales[languageKey] != null)
-//            locales[languageKey]?.put(textKey, translator.translate(languageKey, textKey))
-//        else {
-//            locales[languageKey] = mutableMapOf(textKey to translator.translate(languageKey, textKey))
-//        }
-//        return locales[languageKey]?.get(textKey)
-//    }
+    fun add(languageKey: String, textKey: String): String? {
+        translator.onRestListener = this
+        if (locales[languageKey] != null)
+            locales[languageKey]?.put(textKey, translator.translate(languageKey, textKey))
+        else {
+            locales[languageKey] =
+                mutableMapOf(textKey to translator.translate(languageKey, textKey))
+        }
+        return locales[languageKey]?.get(textKey)
+    }
 
-    fun remove(languageKey: String, textKey: String){
+    fun remove(languageKey: String, textKey: String) {
         if (locales[languageKey]?.get(textKey) != null) {
             locales[languageKey]?.remove(textKey)
             println("text $textKey is removed")
@@ -35,7 +45,35 @@ object LocalesDataController {
             println("$textKey is not exist")
         }
     }
+
+    override fun onRestStarted() {
+        println("I am going to rest")
+        Timer().schedule(20000) {
+            onCompleted()
+        }
+    }
+
+    private fun onCompleted() {
+        println("I am going to translate")
+        onRestEndListener?.onRestEnd()
+        translateLater.forEach { entry ->
+            val languageKey: String = entry.key
+            println("$languageKey and other text")
+
+            translateLater[languageKey]?.forEach {
+                get(it.key, translator.translate(languageKey, it.key))
+                println(it.key)
+
+            }
+        }
+    }
+
+
+    override fun onRestCompleted() {
+
+    }
 }
+
 
 //hello : Hello map.get(key)
 //goodbye : -> translating goodbye, putting to map, map.get(key)

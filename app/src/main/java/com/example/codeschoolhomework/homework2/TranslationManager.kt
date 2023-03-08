@@ -25,19 +25,6 @@ class TranslationManager {
                 start()
             }
         }
-
-//        val a = LocalesDataController.locales.values
-//        a.size
-//
-//        if (LocalesDataController.locales.values.toMutableList().map {
-//                it.values.toMutableList()
-//            }.flatten().size > 1) {
-//
-//            "i am going to rest".log()
-//            Timer().schedule(5000) {
-//                "i am coming back".log()
-//            }
-//        }
         start()
     }
 
