@@ -52,8 +52,8 @@ class TranslationManager {
         val text = scanner.next()
 
         locale?.alpha2?.let {
-            val translatedText = LocalesDataController.add(it, text)
-            "text: $text , translate: $translatedText".log()
+//            val translatedText = LocalesDataController.add(it, text)
+//            "text: $text , translate: $translatedText".log()
         }
     }
 
@@ -62,8 +62,8 @@ class TranslationManager {
         val text = scanner.next()
 
         locale?.alpha2?.let {
-            val translatedText = LocalesDataController.get(it, text)
-            "text: $text , translate: $translatedText".log()
+//            val translatedText = LocalesDataController.get(it, text)
+//            "text: $text , translate: $translatedText".log()
         }
     }
 

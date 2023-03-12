@@ -3,11 +3,11 @@ package com.example.codeschoolhomework.homework2
 object LocalesDataController {
      val locales = mutableMapOf<String, MutableMap<String, String>>()
     private val translator = Translator()
-    translator.setOnRestListener(...)
+//    translator.setOnRestListener(...)
 
-    fun get(languageKey: String, textKey: String): String? {
-        return locales[languageKey]?.get(textKey) ?: add(languageKey, textKey)
-    }
+//    fun get(languageKey: String, textKey: String): String? {
+//        return locales[languageKey]?.get(textKey) ?: add(languageKey, textKey)
+//    }
 
 //    fun add(languageKey: String, textKey: String): String? {
 //        if (locales[languageKey] != null)

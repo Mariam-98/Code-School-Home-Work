@@ -58,12 +58,26 @@ class GovernmentManager {
             "Please insert human serial number".log()
             val serialNumber = scanner.nextLine()
 
-            val human = Human(age, humanName, serialNumber)
+            "Please insert human account".log()
+            var account = scanner.nextInt()
+
+            val human = Human(age, humanName, serialNumber, account)
 
             government.addHuman(human)
             "human $human, was successfully added to $government".log()
+
         }
     }
+
+
+
+    private fun givePension(){
+        "You will get you pension soon ".log()
+
+    }
+
+
+
 
     private fun String.log() {
         println(this)

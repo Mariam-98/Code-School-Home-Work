@@ -9,18 +9,18 @@ class Translator {
     private var onRestListener: OnRestListener? = null
 
     fun translate(languageKey: String, text: String): String {
-        if(){
-            onRestListener.onRestStarted()
-        }
+//        if(){
+//            onRestListener.onRestStarted()
+//        }
 
-        if(){
-            onRestListener.onRestCompleted()
-        }
-        println(
-            "Please translate  $text into ${
-                LocalesEnum.values().find { it.key == languageKey }?.name
-            }"
-        )
+//        if(){
+//            onRestListener.onRestCompleted()
+//        }
+//        println(
+//            "Please translate  $text into ${
+//                LocalesEnum.values().find { it.key == languageKey }?.name
+//            }"
+//        )
         val translatedText = scanner.nextLine()
 
         println("Translation completed!\n$text: $translatedText")

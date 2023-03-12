@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/helloWorldTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
@@ -14,5 +15,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/calculatorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Calculator"
+        app:layout_constraintEnd_toEndOf="@id/helloWorldTextView"
+        app:layout_constraintStart_toStartOf="@id/helloWorldTextView"
+        app:layout_constraintTop_toBottomOf="@id/helloWorldTextView" />
+
+    <Button
+        android:id="@+id/otherButton"
+        android:backgroundTint="#197A29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="other"
+        app:layout_constraintEnd_toEndOf="@id/calculatorButton"
+        app:layout_constraintStart_toStartOf="@id/calculatorButton"
+        app:layout_constraintTop_toBottomOf="@id/calculatorButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
