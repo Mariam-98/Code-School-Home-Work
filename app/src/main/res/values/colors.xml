@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- color names picked from this site  https://chir.ag/projects/name-that-color/                -->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
+    <color name="purple_700">#5b17d1</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="purple_heart">#5b17d1</color>
+    <color name="snow_drift">#fafcfa</color>
+    <color name="denim">#1767E6</color>
+    <color name="orange">#FF6600</color>
+    <color name="green">#00ff22</color>
+
+    <!--    Calculator Page -->
+    <color name="calculatorPage_actionBar_backgroundColor">@color/purple_heart</color>
+    <color name="calculatorPage_actionBar_titleColor">@color/snow_drift</color>
+    <color name="calculatorPage_actionButton_backgroundColor">@color/denim</color>
+    <color name="calculatorPage_numberButton_backgroundColor">@color/orange</color>
+    <color name="calculatorPage_operatorButton_backgroundColor">@color/green</color>
+    <!--   end Calculator Page -->
+
 </resources>

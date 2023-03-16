@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CalculatorButtonStyle">
+        <item name="android:textSize">@dimen/_20sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ActionButtonStyle" parent="CalculatorButtonStyle">
+        <item name="android:backgroundTint">@color/calculatorPage_actionButton_backgroundColor
+        </item>
+    </style>
+
+    <style name="NumberButtonStyle" parent="CalculatorButtonStyle">
+        <item name="android:backgroundTint">@color/calculatorPage_numberButton_backgroundColor
+        </item>
+    </style>
+
+    <style name="OperationButtonStyle" parent="CalculatorButtonStyle">
+        <item name="android:backgroundTint">@color/calculatorPage_operatorButton_backgroundColor
+        </item>
+    </style>
+
+</resources>
