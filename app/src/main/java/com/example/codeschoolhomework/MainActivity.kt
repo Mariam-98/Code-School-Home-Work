@@ -8,6 +8,7 @@ import android.view.View.OnClickListener
 import android.widget.Button
 import android.widget.Toast
 import com.example.codeschoolhomework.homework3.CalculatorActivity
+import com.example.codeschoolhomework.students.mariam.myHomework3.MyCalculatorActivity
 
 class MainActivity : AppCompatActivity(), OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
     }
 
     private fun openCalculatorActivity(){
-        val intent = Intent(this,CalculatorActivity::class.java)
+        val intent = Intent(this, MyCalculatorActivity::class.java)
         startActivity(intent)
     }
 }

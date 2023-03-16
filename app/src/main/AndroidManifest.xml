@@ -14,6 +14,9 @@
         android:theme="@style/Theme.CodeSchoolHomeWork"
         tools:targetApi="31">
         <activity
+            android:name=".students.mariam.myHomework3.MyCalculatorActivity"
+            android:exported="false" />
+        <activity
             android:name=".homework3.CalculatorActivity"
             android:exported="false" />
         <activity
