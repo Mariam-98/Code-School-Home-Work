@@ -2,10 +2,10 @@ package com.example.codeschoolhomework.students.vahe
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-//import android.widget.Button
-//import android.widget.TextView
+import android.widget.Button
 import com.example.codeschoolhomework.R
 import kotlinx.android.synthetic.main.activity_calculator.*
+import kotlinx.android.synthetic.main.activity_calculator.view.*
 
 
 class CalculatorActivity : AppCompatActivity() {
@@ -15,34 +15,46 @@ class CalculatorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculator)
 
-        number1Button.setOnClickListener { setText("1")}
-        number2Button.setOnClickListener { setText("2") }
-        number3Button.setOnClickListener { setText("3") }
-        number4Button.setOnClickListener { setText("4") }
-        number5Button.setOnClickListener { setText("5") }
-        number6Button.setOnClickListener { setText("6") }
-        number7Button.setOnClickListener { setText("7") }
-        number8Button.setOnClickListener { setText("8") }
-        number9Button.setOnClickListener { setText("9") }
-        number0Button.setOnClickListener { setText("0") }
-        equalsButton.setOnClickListener { setText("=") }
-        divideButton.setOnClickListener { setText("/") }
-        minusButton.setOnClickListener { setText("-") }
-        multiplyButton.setOnClickListener { setText("*") }
-        plusButton.setOnClickListener { setText("+") }
-        percentButton.setOnClickListener { setText("%") }
-        dotButton.setOnClickListener { setText(".") }
+
+        val numberButtons = listOf(
+            number0Button,
+            number1Button,
+            number2Button,
+            number3Button,
+            number4Button,
+            number5Button,
+            number6Button,
+            number7Button,
+            number8Button,
+            number9Button
+        )
+        val operatorButtons = listOf(
+            divideButton,
+            minusButton,
+            multiplyButton,
+            plusButton,
+            percentButton,
+            dotButton,
+            equalsButton
+        )
+
+        numberButtons.forEachIndexed { index, button ->
+            button.setOnClickListener { setText("$index") }
+        }
+
+        operatorButtons.forEach { button ->
+            button.setOnClickListener { setText(button.text.toString()) }
+        }
         deleteButton.setOnClickListener {
             val str = resultTextView.text.toString()
             if (str.isNotEmpty())
                 resultTextView.text = str.subSequence(0,str.length-1)
         }
-    }
 
+
+    }
 
     fun setText(str: String) {
-        resultTextView.append(str)
+            resultTextView.append(str)
+        }
     }
-
-
-}
