@@ -2,7 +2,6 @@ package com.example.codeschoolhomework.students.mariam.myHomework3
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import com.example.codeschoolhomework.R
@@ -36,58 +35,37 @@ class MyCalculatorActivity : AppCompatActivity() {
         calculatorTextView = findViewById(R.id.calculatorTextView)
         deleteButton = findViewById(R.id.deleteButton)
         equalButton = findViewById(R.id.equalButton)
-        oneButton = findViewById(R.id.oneButton)
-        twoButton = findViewById(R.id.twoButton)
-        threeButton = findViewById(R.id.threeButton)
+        oneButton = findViewById(R.id.number1Button)
+        twoButton = findViewById(R.id.number2Button)
+        threeButton = findViewById(R.id.number3Button)
         divisionButton = findViewById(R.id.divisionButton)
-        fourButton = findViewById(R.id.fourButton)
-        fiveButton = findViewById(R.id.fiveButton)
-        sixButton = findViewById(R.id.sixButton)
+        fourButton = findViewById(R.id.number4Button)
+        fiveButton = findViewById(R.id.number5Button)
+        sixButton = findViewById(R.id.number6Button)
         subtractionButton = findViewById(R.id.subtractionButton)
-        sevenButton = findViewById(R.id.sevenButton)
-        eightButton = findViewById(R.id.eightButton)
-        nineButton = findViewById(R.id.nineButton)
+        sevenButton = findViewById(R.id.number7Button)
+        eightButton = findViewById(R.id.number8Button)
+        nineButton = findViewById(R.id.number9Button)
         multiplicationButton = findViewById(R.id.multiplicationButton)
         dotButton = findViewById(R.id.dotButton)
-        zeroButton = findViewById(R.id.zeroButton)
+        zeroButton = findViewById(R.id.number0Button)
         percentButton = findViewById(R.id.percentButton)
         additionButton = findViewById(R.id.additionButton)
 
+        val numberButtons = listOf(
+            oneButton,
+            twoButton,
+            threeButton,
+            fourButton,
+            fiveButton,
+            sixButton,
+            sevenButton,
+            eightButton,
+            nineButton
+        )
 
-        oneButton.setOnClickListener {
-            setTextTOTextView(calculatorTextView.text.toString() + "1")
-        }
-
-        twoButton.setOnClickListener {
-            setTextTOTextView(calculatorTextView.text.toString() + "2")
-        }
-
-        threeButton.setOnClickListener {
-            setTextTOTextView(calculatorTextView.text.toString() + "3")
-        }
-
-        fourButton.setOnClickListener {
-            setTextTOTextView(calculatorTextView.text.toString() + "4")
-        }
-
-        fiveButton.setOnClickListener {
-            setTextTOTextView(calculatorTextView.text.toString() + "5")
-        }
-
-        sixButton.setOnClickListener {
-            setTextTOTextView(calculatorTextView.text.toString() + "6")
-        }
-
-        sevenButton.setOnClickListener {
-            setTextTOTextView(calculatorTextView.text.toString() + "7")
-        }
-
-        eightButton.setOnClickListener {
-            setTextTOTextView(calculatorTextView.text.toString() + "8")
-        }
-
-        nineButton.setOnClickListener {
-            setTextTOTextView(calculatorTextView.text.toString() + "9")
+        numberButtons.forEachIndexed { index, button ->
+            button.setOnClickListener { setTextTOTextView(calculatorTextView.text.toString() + "${index + 1}") }
         }
 
         zeroButton.setOnClickListener {
@@ -167,10 +145,7 @@ class MyCalculatorActivity : AppCompatActivity() {
 //    }
 
 
-
     private fun setTextTOTextView(str: String) {
         calculatorTextView.text = str
     }
-
-
 }

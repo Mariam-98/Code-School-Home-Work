@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CalculatorButtonStyle">
+        <item name="android:textSize">@dimen/_20sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ActionButtonStyle" parent="CalculatorButtonStyle">
+        <item name="android:backgroundTint">@color/light_gray</item>
+        <item name="android:textColor">@color/dark_liver</item>
+    </style>
+
+    <style name="NumberButtonStyle" parent="CalculatorButtonStyle">
+        <item name="android:backgroundTint">@color/dark_liver</item>
+        <item name="android:background">@drawable/round_</item>
+    </style>
+
+    <style name="OperatorButtonStyle" parent="CalculatorButtonStyle">
+        <item name="android:backgroundTint">@color/vivid_gamboge</item>
+    </style>
+
+<!--    Custom theme of ToolBar-->
+    <style name="CustomToolbarStyle" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/light_gray</item>
+        <item name="titleTextAppearance">@style/CustomTitleTextAppearance</item>
+    </style>
+
+    <style name="CustomTitleTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">@dimen/_18sp</item>
+        <item name="android:textColor">@color/dark_liver</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>

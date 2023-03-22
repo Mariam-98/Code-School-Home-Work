@@ -2,4 +2,31 @@
     <string name="app_name">Code School Home Work</string>
 
     <string name="hello">Hello</string>
+
+    <string name="calculator">Calculator</string>
+
+
+    <!--    not translatable-->
+    <string name="del" translatable="false">del</string>
+    <string name="symbol_equal" translatable="false">=</string>
+    <string name="symbol_divide" translatable="false">/</string>
+    <string name="symbol_multiply" translatable="false">x</string>
+    <string name="symbol_minus" translatable="false">-</string>
+    <string name="symbol_plus" translatable="false">+</string>
+    <string name="symbol_dot" translatable="false">.</string>
+    <string name="symbol_percent" translatable="false">%</string>
+
+    <string name="number_0" translatable="false">0</string>
+    <string name="number_1" translatable="false">1</string>
+    <string name="number_2" translatable="false">2</string>
+    <string name="number_3" translatable="false">3</string>
+    <string name="number_4" translatable="false">4</string>
+    <string name="number_5" translatable="false">5</string>
+    <string name="number_6" translatable="false">6</string>
+    <string name="number_7" translatable="false">7</string>
+    <string name="number_8" translatable="false">8</string>
+    <string name="number_9" translatable="false">9</string>
+
+    <!--    end not translatable-->
+
 </resources>

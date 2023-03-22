@@ -7,7 +7,20 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
     <color name="dark_liver">#505050</color>
     <color name="light_gray">#D4D4D2</color>
     <color name="vivid_gamboge">#FF9500</color>
+    <color name="snow_drift">#fafcfa</color>
+
+
+    <!--    Calculator Page-->
+    <color name="calculatorPage_actionBar_backgroundColor">@color/light_gray</color>
+    <color name="calculatorPage_actionBar_titleColor">@color/snow_drift</color>
+    <color name="calculatorPage_actionButton_backgroundColor">@color/light_gray</color>
+    <color name="calculatorPage_numberButton_backgroundColor">@color/dark_liver</color>
+    <color name="calculatorPage_operatorButton_backgroundColor">@color/vivid_gamboge</color>
+    <!--    end Calculator Page-->
+
 </resources>
