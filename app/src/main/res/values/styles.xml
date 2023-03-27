@@ -13,7 +13,6 @@
 
     <style name="NumberButtonStyle" parent="CalculatorButtonStyle">
         <item name="android:backgroundTint">@color/dark_liver</item>
-        <item name="android:background">@drawable/round_</item>
     </style>
 
     <style name="OperatorButtonStyle" parent="CalculatorButtonStyle">
